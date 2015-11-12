@@ -1,0 +1,6 @@
+framework module Pods_DDG_Search {
+  umbrella header "Pods-DDG-Search-umbrella.h"
+
+  export *
+  module * { export * }
+}
