@@ -10,12 +10,14 @@
 		4DF16D309F9CEFA7B289B5B6 /* Pods_DDG_Search.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571B6D1BFABAAB352B1398D0 /* Pods_DDG_Search.framework */; };
 		68E2721D70BEC4A7D1193D82 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65BE595FA78EAA541BE61795 /* Pods.framework */; };
 		BAEB16EA1BF5287B00C9B11D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB16E91BF5287B00C9B11D /* AppDelegate.swift */; };
-		BAEB16EC1BF5287B00C9B11D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB16EB1BF5287B00C9B11D /* ViewController.swift */; };
 		BAEB16EF1BF5287B00C9B11D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEB16ED1BF5287B00C9B11D /* Main.storyboard */; };
 		BAEB16F11BF5287B00C9B11D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEB16F01BF5287B00C9B11D /* Assets.xcassets */; };
 		BAEB16F41BF5287B00C9B11D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEB16F21BF5287B00C9B11D /* LaunchScreen.storyboard */; };
 		BAEB16FF1BF5287B00C9B11D /* DDG_SearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB16FE1BF5287B00C9B11D /* DDG_SearchTests.swift */; };
 		BAEB170A1BF5287B00C9B11D /* DDG_SearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEB17091BF5287B00C9B11D /* DDG_SearchUITests.swift */; };
+		BAECE32A1BF5316C0033555A /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAECE3291BF5316C0033555A /* SearchVC.swift */; };
+		BAECE32C1BF532060033555A /* SearchResultsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAECE32B1BF532060033555A /* SearchResultsTVC.swift */; };
+		BAECE3301BF534AF0033555A /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAECE32F1BF534AE0033555A /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,6 @@
 		65BE595FA78EAA541BE61795 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEB16E61BF5287B00C9B11D /* DDG-Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DDG-Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEB16E91BF5287B00C9B11D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAEB16EB1BF5287B00C9B11D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAEB16EE1BF5287B00C9B11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAEB16F01BF5287B00C9B11D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAEB16F31BF5287B00C9B11D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +53,9 @@
 		BAEB17051BF5287B00C9B11D /* DDG-SearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DDG-SearchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEB17091BF5287B00C9B11D /* DDG_SearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDG_SearchUITests.swift; sourceTree = "<group>"; };
 		BAEB170B1BF5287B00C9B11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAECE3291BF5316C0033555A /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		BAECE32B1BF532060033555A /* SearchResultsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTVC.swift; sourceTree = "<group>"; };
+		BAECE32F1BF534AE0033555A /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		C67878E28D23A718A606E13F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,10 +130,12 @@
 			isa = PBXGroup;
 			children = (
 				BAEB16E91BF5287B00C9B11D /* AppDelegate.swift */,
-				BAEB16EB1BF5287B00C9B11D /* ViewController.swift */,
+				BAECE3291BF5316C0033555A /* SearchVC.swift */,
+				BAECE32B1BF532060033555A /* SearchResultsTVC.swift */,
+				BAECE32F1BF534AE0033555A /* SearchResultCell.swift */,
 				BAEB16ED1BF5287B00C9B11D /* Main.storyboard */,
-				BAEB16F01BF5287B00C9B11D /* Assets.xcassets */,
 				BAEB16F21BF5287B00C9B11D /* LaunchScreen.storyboard */,
+				BAEB16F01BF5287B00C9B11D /* Assets.xcassets */,
 				BAEB16F51BF5287B00C9B11D /* Info.plist */,
 			);
 			path = "DDG-Search";
@@ -335,8 +341,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAEB16EC1BF5287B00C9B11D /* ViewController.swift in Sources */,
+				BAECE32A1BF5316C0033555A /* SearchVC.swift in Sources */,
 				BAEB16EA1BF5287B00C9B11D /* AppDelegate.swift in Sources */,
+				BAECE3301BF534AF0033555A /* SearchResultCell.swift in Sources */,
+				BAECE32C1BF532060033555A /* SearchResultsTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +482,7 @@
 		};
 		BAEB170F1BF5287B00C9B11D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 552DC6CACD08A966D73D1FB4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "DDG-Search/Info.plist";
@@ -485,6 +494,7 @@
 		};
 		BAEB17101BF5287B00C9B11D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C67878E28D23A718A606E13F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "DDG-Search/Info.plist";
