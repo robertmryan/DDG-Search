@@ -18,25 +18,24 @@ class SearchResultsTVC: UITableViewController {
         }
     }
     
-    var itemsArray : Array<Dictionary<NSObject, AnyObject>> = []
+    var itemsArray = [[String:AnyObject]]()
     
-    var resultText : [String] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.tableView.reloadData()
 
     }
 
-    
     // MARK: - Get data
     
     func getSearchResults(text: String) {
         
         if let excapedText = text.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) {
-            
+
             Alamofire.request(.GET, "https://api.duckduckgo.com/?q=\(excapedText)&format=json")
                 .responseJSON { response in
                     guard response.result.error == nil else {
@@ -47,11 +46,11 @@ class SearchResultsTVC: UITableViewController {
                         
                     }
                     
-                    let swiftyJsonVar = JSON(response.result.value!)
+                    let items = JSON(response.result.value!)
                     
-                    if let relatedTopics = swiftyJsonVar["RelatedTopics"].arrayObject {
+                    if let relatedTopics = items["RelatedTopics"].arrayObject {
                         
-                        self.itemsArray = relatedTopics as! Array<Dictionary<NSObject, AnyObject>>
+                        self.itemsArray = relatedTopics as! [[String:AnyObject]]
                     }
                     
                     if self.itemsArray.count > 0 {
@@ -90,17 +89,24 @@ class SearchResultsTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return itemsArray.count
+        return 6 // itemsArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchResultCell", forIndexPath: indexPath) as! SearchResultCell
 
-        var dict = itemsArray[indexPath.row]
-        
-        cell.resultLabel.text = dict["Text"] as? String
-        
+        if itemsArray.count > 0 {
+            
+            var dict = itemsArray[indexPath.row]
+            cell.resultLabel?.text = dict["Text"] as? String
+            
+        } else {
+            
+            print("Results not loaded yet")
+
+        }
+
         return cell
     }
 
