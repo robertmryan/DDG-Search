@@ -55,7 +55,10 @@ class SearchResultsTVC: UITableViewController {
                     
                     if self.itemsArray.count > 0 {
                         
-                        self.tableView.reloadData()
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.tableView.reloadData()
+
+                        })
                     }
 
 //                    if let items = response.result.value {
@@ -89,23 +92,25 @@ class SearchResultsTVC: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 6 // itemsArray.count
+        return 6 //itemsArray.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchResultCell", forIndexPath: indexPath) as! SearchResultCell
 
-        if itemsArray.count > 0 {
-            
+//        if itemsArray.count > 0 {
+        
             var dict = itemsArray[indexPath.row]
+            
+            print(dict["Text"])
             cell.resultLabel?.text = dict["Text"] as? String
             
-        } else {
-            
+//        } else {
+        
             print("Results not loaded yet")
 
-        }
+//        }
 
         return cell
     }
