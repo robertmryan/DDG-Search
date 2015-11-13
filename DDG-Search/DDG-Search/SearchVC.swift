@@ -30,10 +30,10 @@ class SearchVC: UIViewController, UITextFieldDelegate {
             
             performSegueWithIdentifier("ShowSearchResults", sender: self)
             return true
-
+            
         }
     }
-
+    
     func noTextAlert() {
         
         let alertController = UIAlertController(title: "Alert", message: "Enter Text! Nothing is not nothing but please search \"Nothing\"!", preferredStyle: .Alert)
@@ -47,21 +47,20 @@ class SearchVC: UIViewController, UITextFieldDelegate {
         presentViewController(alertController, animated: true, completion: { () -> Void in
             print("Alert was shown")
         })
-
-    }
-
-    // MARK: - Navigation
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-        let searchResultTVC = SearchResultsTVC()
-        searchResultTVC.searchText = searchField.text
         
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let searchResultTVC = segue.destinationViewController as? SearchResultsTVC {
+            searchResultTVC.searchText = searchField.text
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
